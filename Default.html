@@ -1,0 +1,108 @@
+<html>
+<head>
+	<link href="./css/fileDrop.css" rel="stylesheet" type="text/css">
+	<script src="./js/jquery.min.js"></script>
+	<!-- DEV VERSION-->
+	<!--<script src="./js/jQuery.fileDrop.js"></script>-->
+
+	<!-- PRODUCTION VERSION-->
+	<script src="./js/jQuery.fileDrop.js"></script>
+</head>
+<body>
+<div class="filedropjs" data-fd-bookingChecklistId="1235" data-fd-bookingNumber></div>
+
+<!-- <div class="filedropjs"></div>
+
+<div class="filedropjs"></div> -->
+
+<button id="addMore">Add More</button>
+<input type="button" class="uploadFile btnPrimary" value="Upload">
+	<script>
+	$(function() {
+		var d = $(".filedropjs").fileDrop({
+			url: "http://localhost:5100/student/document/uploaddocument",
+			hoverClass: "fileDropHover",
+			useDefaultContainers: true,
+			onFileAddedToQueue: function(file) { $(".fileUploadBtn").show(); },
+			onFileRemovedFromQueue: function(file, fileCountInQueue) {
+				if (fileCountInQueue === 0) {
+					$(".fileUploadBtn").hide("slow");
+				}
+			},
+			showConsoleLog: true,
+			onFileUploaded: function(status, data) {
+				alert(data);
+				.5
+			},
+			submitButton: ".btnPrimary",
+			allowMultipleSelection: true,
+			maxQueueSize: 2,
+			uploadItemTemplate:
+				"<div class='fdFile'> <div class='fdUploadProgress'></div> <div class='fdFileThumbnail'><img src=''></div> <div class='fdFileDetails'><div class='fdFileName'></div><div class='fdFileStatus'></div> </div> <div class='fdCloseFile'>x</div></div>"
+
+		});
+		debugger;
+		console.log(d);
+	});
+	
+	var c=0;
+	$("#addMore").click(function(e){
+		$("body").append("<div id='sample"+c+"'></div>");
+        $('#sample' + c + '').fileDrop({});
+		c++;
+		e.stopPropagation();
+	});
+	</script>
+</body>
+</html>
+
+
+
+<!-- <script>
+	$(function () {
+		$(".fileDropjs").fileDrop({
+			url: "UploadDocument",
+			hoverClass: "fileDropHover",
+			useDefaultContainers: false,
+			onFileAddedToQueue: function (file) { $(".fileUploadBtn").show(); },
+			onFileRemovedFromQueue: function (file, fileCountInQueue) {
+				if (fileCountInQueue === 0) {
+					$(".fileUploadBtn").hide("slow");
+				}
+			},
+			showConsoleLog: true,
+			onFileUploaded: function (status, data) {
+				documentUploaded();
+			},
+			fileSizePerFileInMb: 5,
+			maxQueueSize: 10,
+			allowFileQueue: true,
+			uploadMutiple: false,
+			thumbnailClass: 'confirmImg',
+			allowDataAttributeInput: true,
+			supportedFileTypes: ["jpg", "jpeg", "png", "pdf", "doc", "docx"],
+			parallelUpload: true,
+			classicBrowserSupport: true,
+			autoSumbitFile: false,
+			submitButton: ".btnPrimary",
+			previewFileTarget: ".fileUploadHistory",
+			uploadItemTemplate:
+			"<div class='group confirmBlk'><div class='progress'></div><div class='confirmImg'></div><div class='confirmTxt'></div><div class='right'><a href='javascript:void(0);' class='icon-closeWhtWOborder'></a></div></div>",
+			uploadItemClass: "confirmBlk",
+			progressClass: "progress",
+			progressSuccessClass: "success",
+			progressErrorClass: "error",
+			uploadItemNameClass: "confirmTxt",
+			uploadItemRevmoveClass: "icon-closeWhtWOborder",
+			message: {
+				fileSizeExceeded: "@("Max file size is exceeded".RepaceIfNotNull(translations?.MsgFileSizeExceeded))",
+				fileSizeIsZero: "@("File size cannot be zero".RepaceIfNotNull(translations?.MsgFileSizeCannotBeZero))",
+				fileTypeNotSupported: "@("File type is not supported".RepaceIfNotNull(translations?.MsgFileTypeNotSupported))",
+				error: "@("Error, please try again".RepaceIfNotNull(translations?.MsgError))",
+				queued: "@("Queued".RepaceIfNotNull(translations?.MsgQueued))",
+				uploading: "@("Uploading..".RepaceIfNotNull(translations?.MsgUploading))",
+				uploaded: "@("Uploaded".RepaceIfNotNull(translations?.MsgUploaded))",
+			}
+		});
+	});
+</script> -->

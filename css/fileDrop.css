@@ -1,0 +1,76 @@
+.filedropjs{
+	
+		width:400px;
+		height:200px;
+		margin: 20px auto;
+		border: 2px dashed rgb(31, 169, 249);
+	}
+	.fileDropHover {
+		border: 2px solid rgb(31, 169, 249) !important;
+	}
+	
+	.filedropContainer {
+		margin: 75px auto;
+		display: block;
+		width: 220px;
+	}
+	
+	.previewFileTarget{
+		width: 400px;
+		margin: 4px auto;
+	}
+	
+	.fdFile{
+		position:relative;
+		padding:2px;
+		margin: 4px 4px;
+		border: 1px solid #2389d2;
+	}
+	.fdFile:after{
+		clear:both;
+	}
+	.fdFile:before, .fdFile:after{
+	    content: "";
+		display: table;
+	}
+	
+	.fdCloseFile{
+		position: relative;
+		float: right;
+		margin-top: 22px;
+		margin-right: 8px;
+		cursor: pointer;
+	}
+	
+	.fdFileThumbnail{
+		position: relative;
+		width: 75px;
+		height: 75px;
+		float:left;
+		border:1px solid #2389d2
+	}
+	.fdFileDetails{
+		position: relative;
+		margin-left:14px;
+		float:left;
+	}
+
+	.fdUploadProgress{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width:100%;
+		height: 100%;
+		transition: width 2s;
+	}
+	
+	p{
+		margin:0;
+	}
+	
+	.error{
+		background: #f44336;
+	}
+	.success{
+		background: #4caf50;
+	}
